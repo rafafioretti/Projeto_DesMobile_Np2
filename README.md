@@ -1,8 +1,6 @@
-# Projeto_DesMobile_Np2
-Calculadora de rendimento CDI para Android — juros simples e compostos, desenvolvido em Java.
 # 📈 Quick — Calculadora de Rendimento CDI
 
-Aplicativo Android desenvolvido para calcular o rendimento de investimentos com base na **taxa CDI**, utilizando juros **simples** e **compostos**. Ideal para simular quanto seu dinheiro pode render de forma rápida e prática.
+Aplicativo Android desenvolvido para calcular o rendimento de investimentos com base na **taxa CDI**, utilizando juros **simples** e **compostos**. Com sistema de cadastro e login, o usuário acessa a calculadora de forma personalizada.
 
 ---
 
@@ -10,8 +8,19 @@ Aplicativo Android desenvolvido para calcular o rendimento de investimentos com 
 
 | Tela | Descrição |
 |------|-----------|
-| **Tela Inicial** | Entrada do valor investido, período e percentual do CDI |
-| **Tela de Resultado** | Exibe o rendimento calculado em juros simples e compostos |
+| **Home** | Tela inicial com logo e botões para Entrar ou Cadastrar |
+| **Cadastro** | Formulário com nome de usuário, e-mail e senha |
+| **Login** | Autenticação com e-mail e senha |
+| **Calculadora** | Cálculo do rendimento por juros simples ou compostos com base no CDI |
+
+---
+
+## 🔄 Fluxo de Navegação
+
+```
+Home → Cadastro → Login → Calculadora
+Home → Login → Calculadora
+```
 
 ---
 
@@ -25,13 +34,17 @@ Aplicativo Android desenvolvido para calcular o rendimento de investimentos com 
 
 ---
 
-## 💡 Funcionalidades
+## ✨ Funcionalidades
 
-- ✅ Cálculo de rendimento por **juros simples**
-- ✅ Cálculo de rendimento por **juros compostos**
-- ✅ Baseado na taxa **CDI** (Certificado de Depósito Interbancário)
-- ✅ Tela de resultado com comparativo dos dois tipos de rendimento
-- ✅ Interface limpa e intuitiva
+- ✅ Tela inicial com navegação para login e cadastro
+- ✅ Cadastro de usuário com nome, e-mail e senha
+- ✅ Validação de campos em todas as telas (campos obrigatórios)
+- ✅ Login com e-mail e senha
+- ✅ Calculadora com entrada de capital, taxa de juros e período em meses
+- ✅ Seleção do tipo de juros via Spinner (Simples ou Compostos)
+- ✅ Ícones de informação (ℹ️) com Toast explicativo em cada campo
+- ✅ Exibição do montante final formatado em R$
+- ✅ Navegação entre telas com `Intent`
 
 ---
 
@@ -47,7 +60,7 @@ M = C × (1 + i × t)
 M = C × (1 + i)^t
 ```
 
-> Onde: `C` = Capital inicial | `i` = Taxa de juros (CDI) | `t` = Período | `M` = Montante final
+> Onde: `C` = Capital inicial | `i` = Taxa de juros (CDI) | `t` = Período em meses | `M` = Montante final
 
 ---
 
@@ -59,10 +72,22 @@ Quick/
 ├── app/
 │   ├── src/
 │   │   └── main/
-│   │       ├── java/         → Lógica em Java (Activities)
+│   │       ├── java/com/example/telaprincipal/
+│   │       │   ├── homeActivity.java       → Tela inicial
+│   │       │   ├── cadastroActivity.java   → Tela de cadastro
+│   │       │   ├── loginActivity.java      → Tela de login
+│   │       │   └── MainActivity.java       → Calculadora CDI
 │   │       ├── res/
-│   │       │   ├── layout/   → Telas em XML
-│   │       │   └── values/   → Cores, strings, temas
+│   │       │   ├── layout/
+│   │       │   │   ├── activity_home.xml
+│   │       │   │   ├── activity_cadastro.xml
+│   │       │   │   ├── activity_login.xml
+│   │       │   │   └── activity_main.xml
+│   │       │   └── drawable/
+│   │       │       ├── logo.png
+│   │       │       ├── quick_logo.png
+│   │       │       ├── login.png
+│   │       │       └── edittextlayout.xml
 │   │       └── AndroidManifest.xml
 │   └── build.gradle.kts
 │
@@ -92,7 +117,7 @@ git clone https://github.com/rafafioretti/quick.git
 ## 👨‍💻 Desenvolvido por
 
 **Rafael Fioretti**  
-Projeto desenvolvido como segundo projeto mobile, aplicando conceitos de Java para Android, lógica financeira e navegação entre telas.
+Projeto desenvolvido como segundo projeto mobile, aplicando conceitos de Java para Android, navegação entre Activities, validação de formulários e lógica financeira com juros simples e compostos.
 
 ---
 
